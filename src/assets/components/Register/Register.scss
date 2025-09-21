@@ -1,0 +1,109 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.register-container {
+    @include component-design;
+    overflow: hidden;
+
+    h2{
+        text-align: center;
+        margin: 2rem 0 0 0;
+    }
+    .register-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        margin: 1rem 2rem;
+
+        .register-form {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+            margin: 2rem 0;
+            gap: 0.5rem;
+            width: 35%;
+            label {
+                @include font-sub;
+            }
+            input {
+                @include input-design;
+                width: 100%;
+
+                &::placeholder {
+                    @include font-sub;
+                }
+            }
+            .password-container {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                position: relative;
+                input {
+                    width: 100%;
+                }
+                .password-icon {
+                    position: absolute;
+                    top: 55%;
+                    right: 10px;
+                    transform: translateY(-50%);
+                    cursor: pointer;
+                }
+            }
+            .confirm-password-container {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                position: relative;
+                input {
+                    width: 100%;
+                }
+                .confirm-password-icon {
+                    position: absolute;
+                    top: 55%;
+                    right: 10px;
+                    transform: translateY(-50%);
+                    cursor: pointer;
+                }
+            }
+            button {
+                @include btn-design-secondary;
+            }
+            .already-account {
+                @include font-sub;
+                margin: 1rem 0;
+
+                a {
+                    color: $secondary-color;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .register-img {
+            width: 50%;
+            height: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    .register-modal-container {
+        @include modal-background;
+        @include show-modal;
+
+        .register-modal-content {
+            @include modal-content;
+            width: 50%;
+            text-align: center;
+
+            .sucess-message {
+                font-weight: bold;
+                font-size: 1.2rem;
+            }
+        }
+    }
+}

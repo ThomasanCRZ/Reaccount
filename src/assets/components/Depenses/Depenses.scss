@@ -1,0 +1,174 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.depenses-container {
+    @include component-design;
+    p {
+        @include font-sub;
+    }
+
+    .chart-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        margin: 2rem auto 0 auto;
+        @include chart-design;
+
+        .sub {
+            @include font-sub;
+        }
+        .depenses-btn-modal {
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            top: 1rem;
+            right: 3.5rem;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid $border-color;
+            border-radius: 5px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            z-index: 1;
+        }
+        .depenses-btn-filter {
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            top: 1rem;
+            right: 1rem;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid $border-color;
+            border-radius: 5px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            z-index: 1;
+        }
+        .filter-container {
+            position: absolute;
+            top: 3.5rem;
+            right: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            background-color: $primary-color;
+            border-radius: 5px;
+            padding: 0.5rem;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+
+            .filter-item {
+                display: flex;
+                align-items: center;
+                gap: 0.2rem;
+                padding: 0.3rem;
+                border-radius: 5px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: rgba($color: $secondary-color, $alpha: 0.1);
+                }
+
+                p{
+                    font-size: 1rem;
+                    font-weight: 500;
+                    color: $gray-color;
+                }
+            }
+
+        }
+    }
+    .legend-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1rem auto 0 auto;
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            .legend-color{
+                width: 10px;
+                height: 10px;
+            }
+            .legend-label {
+                font-size: 0.8rem;
+                font-weight: 400;
+            }
+        }
+    }
+    .depenses-table {
+        display: flex;
+        align-self: start;
+        width: 100%;
+        margin: 3rem 0 1rem 0;
+        @include transaction-design;
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+
+            thead {
+                background-color: rgba($color: $secondary-color, $alpha: 0.2);
+                tr {
+                    th {
+                        @include th-design;
+                    }
+                }
+            }
+
+            tbody {
+                tr {
+                    td {
+                        text-align: left;
+                        padding: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+    
+    .depenses-modal {
+        @include modal-background;
+        @include show-modal;
+        .depenses-modal-content {
+            @include modal-content;
+            width: 50%;
+
+            .btn-close-modal {
+                @include btn-close-modal;;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                width: 70%;
+                margin: 1rem auto;
+
+                label {
+                    font-weight: 600;
+                    margin: 0.5rem 0;
+                }
+
+                input {
+                    padding: 0.5rem;
+                    border-radius: 5px;
+                    border: 1px solid $input-border-color;
+                }
+
+                button {
+                    @include btn-modal-design
+                }
+            }
+        }
+    }
+}

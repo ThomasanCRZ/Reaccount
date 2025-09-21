@@ -1,0 +1,16 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.dashboard-container {
+    @include component-design;
+
+    p {
+        @include font-sub;
+    }
+
+    .dashboard-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}

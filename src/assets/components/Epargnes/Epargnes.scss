@@ -1,0 +1,179 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+.epargnes-container {
+    @include component-design;
+
+    p {
+        @include font-sub;
+    }
+
+    .epargnes-btn {
+        @include btn-design;
+        width: 30%;
+        margin: 2rem 1rem;
+    }
+
+    .epargnes-goals-container {
+        @include card-design;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+
+        .epargnes-goals-item {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            @include small-card-design;
+
+            .epargnes-goals-item-btn-update {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                top: 17px;
+                right: 35px;
+                width: 20px;
+                height: 12px;
+                cursor: pointer;
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                }
+                &:hover {
+                    svg {
+                        fill: $sub-color;
+                    }
+                }
+            }
+            .epargnes-goals-item-btn-delete {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                top: 15px;
+                right: 15px;
+                width: 20px;
+                height: 15px;
+                cursor: pointer;
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                }
+                &:hover {
+                    svg {
+                        fill: $sub-color;
+                    }
+                }
+            }
+            .epargnes-goals-header {
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                gap: 0.5rem;
+                h3{
+                    font-size: 1rem;
+                }
+
+                .epargnes-goals-header-icon {
+                    display: flex;
+                    @include icon-design;
+                    width: 30px;
+                    height: 30px;
+
+                    svg {
+                        width: 100%;
+                        height: 100%;
+                    }
+                    &:hover {
+                        background-color: $primary-color;
+                    }
+                }
+                  
+            }
+
+            .epargnes-goals-progress-bar {
+                background-color: #e9e9e9;
+                height: 30px;
+                width: 90%;
+                border: 1px solid $border-color;
+                border-radius: 5px;
+                overflow: hidden;
+
+                .epargnes-goals-progress {
+                    position: relative;
+                    background-color: rgba($color: $secondary-color, $alpha: 0.5);
+                    height: 100%;
+
+                    .epargnes-goals-progress-percentage {
+                        position: absolute;
+                        top: 5px;
+                        left: 10px;
+                        font-size: 0.9rem;
+                        font-weight: 500;
+                    }
+                }
+            }
+            .epargnes-goals-amount {
+                display: flex;
+                margin-left: 0.5rem;
+                p {
+                    font-size: 0.8rem;
+                }
+            }
+        }
+        .epargnes-goals-modal-container {
+            @include modal-background;
+            .epargnes-goals-modal-content {
+                @include modal-content;
+                min-width: 350px;
+                width: 30%;
+                gap: 0.5rem;
+
+                .epargnes-goals-modal-btn-close {
+                    @include btn-close-modal;
+                }
+
+                .epargnes-goals-modal-btn-icon {
+                    @include icon-design;
+                    display: flex;
+                    align-items: start;
+                    justify-content: center;
+                    cursor: pointer;
+                    width: 2rem;
+                    margin: 1rem 0 1rem 0;
+                }
+
+                .epargnes-goals-modal-icon-container {
+                    position: absolute;
+                    top: 58px;
+                    left: 50px;
+                    display: grid;
+                    grid-template-columns: repeat(5, 1fr);
+                    gap: 0.5rem;
+                    @include small-card-design;
+
+                    .epargnes-goals-modal-icon-item {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        @include icon-design;
+                    }
+                }
+                input {
+                    padding: 0.5rem;
+                    border-radius: 5px;
+                    border: 1px solid $input-border-color;
+                }
+                button {
+                    @include btn-modal-design;
+                    margin: 1rem auto;
+                }
+            }
+        }
+    }
+}

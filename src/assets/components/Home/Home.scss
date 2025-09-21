@@ -1,0 +1,96 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.home-container {
+   @include component-design; 
+    h1 {
+        text-align: center;
+        margin: 2rem 0 0.5rem 0;
+        font-weight: 500;
+    }
+    .h1-span{
+        display: block;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .home-hero{
+        display: flex;
+        margin: 5rem 2rem 1rem 2rem;
+        justify-content: center;
+        height: 350px;
+        gap: 1rem;
+
+        .home-hero-text{
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            gap: 0.5rem;
+            margin: 2rem 0;
+            width: 40%;
+            h2 {
+                font-weight: 500;
+            }
+        }
+        .home-hero-img{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 250px;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    .home-benefits-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin: 0 2rem;
+
+        .home-benefit-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
+            height: 250px;
+            
+            .home-benefit-item-img {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                max-width: 80px;
+                max-height: 80px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            h3 {
+                text-align: center;
+                font-weight: 500;
+            }
+            span {
+                text-align: center;
+                
+            }
+        }
+    }
+    .home-cta {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include btn-design;
+        margin: 3rem auto;
+        padding: 0.7rem 2rem;
+        width: 30%;
+        font-size: 1rem;
+        text-decoration: none;
+        color: black;
+        font-weight: 600;
+    }
+}
