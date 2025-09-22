@@ -24,9 +24,10 @@ function Transactions() {
   });
 
   useEffect(() => {
+   
   const fetchTransactions = async () => {
-    if (!user) return; // Skip si pas connecté
-
+    const userToken = localStorage.getItem('token');
+    if (!user.id) return; // Skip si pas connecté
     setIsLoading(true);
     setErrorMessage('');
     try {
@@ -35,7 +36,7 @@ function Transactions() {
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
-          Authorization: `Bearer ${user.token}`, // Token de AuthContext
+          Authorization: `Bearer ${userToken}`,
         },
       });
 
@@ -56,7 +57,7 @@ function Transactions() {
   };
 
   fetchTransactions();
-}, [user]);
+}, [user.id]);
 
 
   const validateForm = () => {
@@ -173,7 +174,6 @@ function Transactions() {
           <p>Ajouter une transaction</p>
         </div>
         {isLoading && <Loader />}
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
         <div className="transactions-table">
           <table>
             <thead>
